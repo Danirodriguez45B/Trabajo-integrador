@@ -1,0 +1,8 @@
+Thumbs.db
+*~          
+
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+/node_modules
