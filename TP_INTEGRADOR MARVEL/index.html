@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARVEL Daniel Rodriguez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <span class="logo">MARVEL</span>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('page-principal', this)" id="nav-principal" class="active">INICIO</a></li>
+                <li><a href="#" onclick="showPage('page-articulo', this)" id="nav-articulo">PRODUCTOS</a></li>
+                <li><a href="#" onclick="showPage('page-contacto', this)" id="nav-contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="page-principal" class="page-content active">
+            <div class="hero-home">
+                <h1>tienda de lo que busques de Marvel</h1>
+                <p>las ultimas noticias y productos del UCM. Todo de Marvel en un solo lugar!</p>
+            </div>
+
+            <h2>Últimas Noticias!!!</h2>
+            <div class="marvel-grid">
+                <div class="marvel-card">
+                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/en/9/96/Avengers_Doomsday_logo.jpeg" alt="Los Vengadores">
+                    <div class="card-info">
+                        <h3>Avengers Dooms Day</h3>
+                        <p>Anunciada para 2026.</p>
+                    </div>
+                </div>
+                <div class="marvel-card">
+                    <img class="card-image" src="https://cdn.marvel.com/content/2x/cinemacon_spiderman_bnd.png" alt="Spider-Man">
+                    <div class="card-info">
+                        <h3>Spider-Man: Brand New Day</h3>
+                        <p>retoma la historia de Peter Parker después de los eventos de No Way Home, enfocándose en una nueva era de su vida como superhéroe.</p>
+                    </div>
+                </div>
+                <div class="marvel-card">
+                    <img class="card-image" src="https://cdn.marvel.com/content/2x/avengerssecretwars_lob_mas_mob_02.jpg" alt="X-Men">
+                    <div class="card-info">
+                        <h3>Avengers Secret Wars</h3>
+                        <p> una batalla épica entre diferentes versiones del multiverso de Marvel.</p>
+                    </div>
+                </div>
+                <div class="marvel-card">
+                    <img class="card-image" src="https://sw6.elbenwald.de/media/a6/73/f3/1637840104/E1068326_2.jpg" alt="Guardianes de la Galaxia">
+                    <div class="card-info">
+                        <h3>Orden Cronologico del UCM</h3>
+                        <p> la linea temporal de la historia de todas las peliculas de Marvel. DISFRUTALO!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-articulo" class="page-content">
+            <h1>Productos Epicos del UCM</h1>
+            <p>Añade a tu colección las réplicas más icónicas del Universo Marvel. arte para verdaderos fans.</p>
+
+            <div class="product-list">
+                
+                <div class="product-item">
+                    <div class="product-img-placeholder" id="img-thor" aria-label="Martillo de Thor Mjolnir"></div>
+                    <div class="product-details">
+                        <h3>Mjolnir - Martillo de Thor</h3>
+                        <p>Replica escala real, forjada con aliazion de zinc y con base de exhibicion. Solo digno de ser levantado por los más grandes coleccionistas.</p>
+                        <p><strong>Material:</strong> Aleacion de Zinc y Base de Piedra Falsa</p>
+                        <p class="price">$1.500.000 ARS</p>
+                        <button class="btn-buy">Comprar Ahora</button>
+                    </div>
+                </div>
+
+                <div class="product-item reverse">
+                    <div class="product-img-placeholder" id="img-cap" aria-label="Escudo del Capitán América"></div>
+                    <div class="product-details">
+                        <h3>Escudo - Capitán América</h3>
+                        <p>Réplica de precisión en Vibranium sintético. Pintura metálica de alta durabilidad con correas ajustables. ¡Listo para defender la Tierra!</p>
+                        <p><strong>Material:</strong> Aluminio de aviación y Acero</p>
+                        <p class="price">$980.000 ARS</p>
+                        <button class="btn-buy">Comprar Ahora</button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-img-placeholder" id="img-ironman" aria-label="Armadura de Iron Man"></div>
+                    <div class="product-details">
+                        <h3>Guante del Infinito - Thanos - Marvel</h3>
+                        <p>¡Conquista el universo con el poder de las Gemas del Infinito! Esta réplica del legendario Guantelete de Thanos combina una construcción premium con un diseño imponente.</p>
+                        <p><strong>Material:</strong> Confeccionado en aleación de aluminio de alta resistencia, este guantelete ofrece un acabado metálico brillante y un peso sólido que transmite la majestuosidad de esta arma cósmica.</p>
+                        <p class="price">$750.000 ARS</p>
+                        <button class="btn-buy">Comprar Ahora</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="page-contacto" class="page-content">
+            <h1>CONTACTO - S.H.I.E.L.D. Service</h1>
+            <div class="contact-form-card">
+                <p>¿Tienes una pregunta sobre un producto o necesitas reportar una amenaza? Contactanos!</p>
+                
+                <div id="form-validation-errors" role="alert"></div>
+
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre de Agente (*)</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="50" required>
+                        <p class="error-message" id="error-nombre"></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Comunicacion Secreta (Email) (*)</label>
+                        <input type="email" id="email" name="email" required>
+                        <p class="error-message" id="error-email"></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Frecuencia de Contacto (Teléfono) (*)</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <p class="error-message" id="error-telefono"></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje / Reporte (*)</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        <p class="error-message" id="error-mensaje"></p>
+                    </div>
+                    
+                    <button type="submit" class="btn-buy">Enviar Reporte</button>
+                </form>
+
+                <div id="form-success-data"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MARVEL Daniel Rodriguez | Todos los derechos reservados al Multiverso. ⚡</p>
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
+
+</body>
+</html>
