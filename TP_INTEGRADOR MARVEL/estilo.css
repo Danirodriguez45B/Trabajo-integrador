@@ -33,3 +33,124 @@ h1, h2, h3 {
     font-weight: 900;
     text-transform: uppercase;
 }
+header {
+    background-color: var(--color-dark);
+    border-bottom: 5px solid var(--color-marvel-red);
+    box-shadow: 0 2px 10px rgba(230, 36, 41, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-marvel-red);
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 0 var(--color-marvel-gold); 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--color-marvel-gold);
+    border-bottom: 3px solid var(--color-marvel-red);
+}
+
+.page-content {
+    display: none; 
+    padding-bottom: 40px;
+    min-height: 80vh;
+}
+
+.page-content.active {
+    display: block; 
+}
+/* Banner*/
+.hero-home {
+    text-align: center;
+    padding: 50px 0 30px 0;
+    background: linear-gradient(rgba(31, 31, 31, 0.8), rgba(31, 31, 31, 0.8)), 
+                url('https://i.pinimg.com/736x/39/1c/3e/391c3ee8da99b26056f53e349e47d739.jpg') center/cover no-repeat;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.hero-home p {
+    font-size: 1.2rem;
+    color: var(--color-text-dim);
+    max-width: 800px;
+    margin: 15px auto;
+}
+
+.marvel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.marvel-card {
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-text-dim);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.marvel-card:hover {
+    /*efecto*/
+    transform: translateY(-5px);
+    border-color: var(--color-marvel-red);
+    box-shadow: 0 6px 15px rgba(230, 36, 41, 0.6);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--color-marvel-gold);
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
