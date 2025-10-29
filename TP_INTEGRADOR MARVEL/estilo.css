@@ -154,3 +154,69 @@ nav {
     font-size: 0.9rem;
     color: var(--color-text-dim);
 }
+
+/*productos*/
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.product-item {
+    display: flex;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-marvel-red);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(230, 36, 41, 0.2);
+}
+
+.product-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.product-img-placeholder {
+    min-width: 300px;
+    height: 350px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    border-right: 5px solid var(--color-marvel-gold);
+}
+/* Imagenes de cada producto */
+#img-thor {
+    background-image: url('https://acdn-us.mitiendanube.com/stores/006/212/322/products/martillo-thor-3-1784854f2c47bc898717470031536585-1024-1024.webp');
+}
+#img-cap {
+    background-image: url('https://acdn-us.mitiendanube.com/stores/006/212/322/products/escudo-del-capitan-america-2-afa987c0f38f05ceec17470036000735-1024-1024.webp');
+}
+#img-ironman {
+    background-image: url('https://acdn-us.mitiendanube.com/stores/006/212/322/products/foto-guante-1-ec5cecec21ea720dcb17548644277912-1024-1024.webp');
+}
+
+.product-item.reverse .product-img-placeholder {
+    border-left: 5px solid var(--color-marvel-gold);
+    border-right: none;
+}
+
+.product-details {
+    padding: 30px;
+}
+
+.product-details h3 {
+    font-size: 2rem;
+    color: var(--color-marvel-gold);
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    color: var(--color-light);
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.8rem;
+    color: var(--color-marvel-red);
+    font-weight: 700;
+}
