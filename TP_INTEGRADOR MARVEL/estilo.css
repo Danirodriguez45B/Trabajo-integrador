@@ -1,0 +1,35 @@
+:root {
+    --color-marvel-red: #E62429;
+    --color-marvel-gold: #FFD700;
+    --color-dark: #1F1F1F;
+    --color-light: #FFFFFF;
+    --color-text-dim: #BBBBBB;
+    --font-main: 'Oswald', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+/*fondo*/
+    background-image: url('https://r4.wallpaperflare.com/wallpaper/296/400/37/movie-avengers-infinity-war-black-panther-movie-black-widow-wallpaper-49f0f89d41ba3debf667380fb061667d.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: var(--color-marvel-red);
+    font-weight: 900;
+    text-transform: uppercase;
+}
