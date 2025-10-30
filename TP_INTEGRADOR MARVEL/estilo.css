@@ -220,3 +220,76 @@ nav {
     color: var(--color-marvel-red);
     font-weight: 700;
 }
+
+/*boton de compra */
+.btn-buy {
+    background-color: var(--color-marvel-red);
+    color: var(--color-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/*Efecto*/
+.btn-buy:hover {
+    background-color: var(--color-marvel-gold);
+    color: var(--color-dark);
+    transform: scale(1.05);
+}
+/*tarjeta del formulario*/
+.contact-form-card {
+    background-color: var(--color-dark);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px var(--color-marvel-red);
+    max-width: 600px;
+    margin: 40px auto;
+    border: 1px solid var(--color-marvel-red);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #2a2a2a;
+    color: var(--color-light);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--color-marvel-red);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(230, 36, 41, 0.4);
+}
+
+.error-message { color: var(--color-marvel-red); font-size: 0.9rem; margin-top: 5px; }
+#form-validation-errors { background-color: #581517; border: 1px solid var(--color-marvel-red); color: var(--color-light); padding: 10px; border-radius: 4px; display: none; margin-bottom: 20px; }
+#form-validation-errors ul { margin: 10px 0 0 20px; padding: 0; }
+#form-success-data { background-color: #175815; border: 1px solid #32CD32; color: var(--color-light); padding: 20px; border-radius: 4px; margin-top: 20px; display: none; }
+#form-success-data h3 { color: var(--color-marvel-gold); }
+
+
+footer {
+    background-color: #0D0D0D;
+    color: var(--color-text-dim);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 3px solid var(--color-marvel-red);
+}
