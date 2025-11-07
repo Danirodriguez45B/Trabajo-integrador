@@ -79,3 +79,123 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(nextSlide, 5000); 
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const principalPage = document.getElementById('page-principal');
+    const principalLink = document.getElementById('nav-principal');
+    if (principalPage) principalPage.classList.add('active');
+    if (principalLink) principalLink.classList.add('active');
+});
+
+const contactForm = document.getElementById('contact-form');
+const errorContainer = document.getElementById('form-validation-errors');
+const successContainer = document.getElementById('form-success-data');
+const errorMessages = document.querySelectorAll('.error-message');
+
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+const phoneRegex = /^\+?(\d[\d\s-]*){8,}$/; 
+
+function displayFieldError(fieldId, message) {
+    const errorElement = document.getElementById(`error-${fieldId}`);
+    if (errorElement) {
+        errorElement.textContent = message;
+    }
+}
+
+function clearErrors() {
+    errorMessages.forEach(el => el.textContent = '');
+    errorContainer.innerHTML = '';
+    errorContainer.style.display = 'none';
+}
+
+function validateForm(data) {
+    const errors = [];
+    clearErrors();
+    
+    const nombre = data.get('nombre').trim();
+    const email = data.get('email').trim();
+    const telefono = data.get('telefono').trim();
+    const mensaje = data.get('mensaje').trim();
+
+
+    if (nombre === '') {
+        errors.push('El campo Nombre es obligatorio.');
+        displayFieldError('nombre', 'Este campo es obligatorio.');
+    }
+    if (email === '') {
+        errors.push('El campo Email es obligatorio.');
+        displayFieldError('email', 'Este campo es obligatorio.');
+    }
+    if (telefono === '') {
+        errors.push('El campo Teléfono es obligatorio.');
+        displayFieldError('telefono', 'Este campo es obligatorio.');
+    }
+    if (mensaje === '') {
+        errors.push('El campo Mensaje es obligatorio.');
+        displayFieldError('mensaje', 'Este campo es obligatorio.');
+    }
+
+
+    if (nombre.length > 50) {
+        errors.push('El Nombre no puede exceder los 50 caracteres.');
+        displayFieldError('nombre', 'Máximo 50 caracteres.');
+    }
+    
+
+    if (email !== '' && !emailRegex.test(email)) {
+        errors.push('El formato del Correo Electronico no es valido.');
+        displayFieldError('email', 'Formato de email incorrecto (ej: usuario@dominio.com).');
+    }
+    
+    if (telefono !== '' && !phoneRegex.test(telefono)) {
+        errors.push('El formato del Teléfono no es válido (mínimo 8 dígitos).');
+        displayFieldError('telefono', 'Formato de teléfono incorrecto (ej: +54 9 11 1234-5678).');
+    }
+    
+    return errors;
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        successContainer.style.display = 'none';
+        
+        const formData = new FormData(contactForm);
+        const validationErrors = validateForm(formData);
+
+        if (validationErrors.length > 0) {
+            errorContainer.style.display = 'block';
+            errorContainer.innerHTML = '<strong>Alerta de S.H.I.E.L.D.:</strong> Necesitas corregir estos errores:<ul>' + 
+            validationErrors.map(err => `<li>${err}</li>`).join('') + 
+            '</ul>';
+        } else {
+            clearErrors();
+            
+            successContainer.style.display = 'block';
+            successContainer.innerHTML = ''; 
+
+            const successTitle = document.createElement('h3');
+            successTitle.textContent = '¡Reporte Enviado al Cuartel General!';
+            successContainer.appendChild(successTitle);
+
+            const confirmationText = document.createElement('p');
+            confirmationText.textContent = 'Tu mensaje fue recibido. Un Agente se comunicara contigo pronto para el seguimiento de la mision.';
+            successContainer.appendChild(confirmationText);
+            
+            const dataList = document.createElement('ul');
+            
+            for (const [key, value] of formData.entries()) {
+                const listItem = document.createElement('li');
+                const formattedKey = key.charAt(0).toUpperCase() + key.slice(1).replace('-', ' ');
+                listItem.innerHTML = `<strong>${formattedKey}:</strong> ${value}`;
+                dataList.appendChild(listItem);
+            }
+            
+            successContainer.appendChild(dataList);
+            
+            contactForm.reset();
+        }
+    });
+}
